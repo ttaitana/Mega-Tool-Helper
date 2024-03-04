@@ -50,7 +50,7 @@ const setMainGene = (data, rawData) => {
 const setInfo = (data, fileName) => {
     document.querySelector("#dataInfo").innerHTML = `
     <p>filename : ${fileName} <br>
-    total genes : ${data.length.toLocaleString()} genes</p>
+    total base pairs : ${data.length.toLocaleString()} pairs</p>
     `
 }
 
