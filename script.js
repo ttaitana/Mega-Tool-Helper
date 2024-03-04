@@ -100,7 +100,7 @@ const downloadFile = () => {
  const buildText = () => {
     geneResult = rawFile
     resultSet.forEach((geneSet) => {
-        let text = `>${geneSet.name}\n${geneSet.gene.replace(/[^a-zA-Z ]/g, "")}`
+        let text = `>${geneSet.name}\n${geneSet.gene}`
         geneResult += '\n' + text
     })
     return geneResult
