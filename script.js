@@ -21,7 +21,7 @@ const importData = (event) => {
 const dataSpliter = (rawData, fileName) => {
     let data = rawData.split('\n');
     data.shift();
-    data = data.join('');
+    data = data.join('').replace(/[^a-zA-Z ]/g, "");
     setMainGene(data, rawData)
     setInfo(data, fileName)
 }
@@ -48,6 +48,7 @@ const setMainGene = (data, rawData) => {
 }
 
 const setInfo = (data, fileName) => {
+    console.log(data)
     document.querySelector("#dataInfo").innerHTML = `
     <p>filename : ${fileName} <br>
     total base pairs : ${data.length.toLocaleString()} pairs</p>
@@ -99,7 +100,7 @@ const downloadFile = () => {
  const buildText = () => {
     geneResult = rawFile
     resultSet.forEach((geneSet) => {
-        let text = `>${geneSet.name}\n${geneSet.gene}`
+        let text = `>${geneSet.name}\n${geneSet.gene.replace(/[^a-zA-Z ]/g, "")}`
         geneResult += '\n' + text
     })
     return geneResult
